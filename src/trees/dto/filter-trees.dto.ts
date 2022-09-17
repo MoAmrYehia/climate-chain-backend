@@ -7,10 +7,10 @@ import { CreateTreeDto } from './create-tree.dto';
 export class FilterTrees extends IntersectionType(PartialType(CreateTreeDto), BaseFilterDto) {
   @ApiProperty({
     required: false,
-    enum: stringArrayToEnum(getOrderByArrayFromType(Prisma.BreakScalarFieldEnum))
+    enum: stringArrayToEnum(getOrderByArrayFromType(Prisma.TreeScalarFieldEnum))
   })
   @IsOptional()
   @IsString()
-  @ValidateIf((obj, val) => getOrderByArrayFromType(Prisma.BreakScalarFieldEnum).includes(val))
+  @ValidateIf((obj, val) => getOrderByArrayFromType(Prisma.TreeScalarFieldEnum).includes(val))
   readonly orderBy?: string = 'updatedAt';
 }

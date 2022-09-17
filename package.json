@@ -1,11 +1,11 @@
 {
   "license": "MIT",
-  "name": "nestjs-boilerplate",
-  "description": "A boilerplate for a containerised REST NestJS backend utilising Prisma and Auth0",
+  "name": "climate-chain-backend",
+  "description": "The REST backend for climate chain",
   "version": "0.0.1",
   "author": "Jonas Schultheiss <jonas.schultheiss@sos-esports.com> (https://jonasschultheiss.dev)",
   "keywords": [
-    "boilerplate",
+    "climate",
     "nestjs",
     "prisma",
     "postgresql",
@@ -13,9 +13,9 @@
     "docker",
     "docker-compose"
   ],
-  "homepage": "https://github.com/jonasschultheiss/nestjs-boilerplate",
+  "homepage": "https://github.com/MoAmrYehia/climate-chain-backend",
   "bugs": {
-    "url": "https://github.com/jonasschultheiss/nestjs-boilerplate/issues"
+    "url": "https://github.com/MoAmrYehia/climate-chain-backend/issues"
   },
   "private": false,
   "engines": {
@@ -24,7 +24,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jonasschultheiss/nestjs-boilerplate.git"
+    "url": "git+https://github.com/MoAmrYehia/climate-chain-backend.git"
   },
   "scripts": {
     "prebuild": "rimraf dist",
@@ -41,7 +41,7 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "doc:generate": "npx compodoc -p tsconfig.json -n 'NestJS Boilerplate'",
+    "doc:generate": "npx compodoc -p tsconfig.json -n 'Climate chain'",
     "doc:serve": "yarn doc:generate && npx compodoc -s",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev --name",
