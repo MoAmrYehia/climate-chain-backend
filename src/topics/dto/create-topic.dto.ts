@@ -2,7 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { Cantons, Prisma } from '@prisma/client';
 import { IsEnum, IsNotEmpty, IsOptional, IsString, IsUrl } from 'class-validator';
 
-type ICreateTopicDto = Omit<Prisma.TopicCreateInput, 'id' | 'createdAt' | 'updatedAt' | 'versions'>;
+type ICreateTopicDto = Omit<Prisma.TopicCreateInput, 'id' | 'createdAt' | 'updatedAt'>;
 
 export class CreateTopicDto implements ICreateTopicDto {
   @IsNotEmpty()

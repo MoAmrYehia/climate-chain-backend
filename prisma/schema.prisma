@@ -56,8 +56,9 @@ model Topic {
   body            String
   affectedCantons Cantons[]
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  TopicInstance TopicInstance[]
 }
 
 model TopicInstance {
@@ -68,6 +69,9 @@ model TopicInstance {
   unit       String
   difference Int
   year       Years
+
+  topic   Topic  @relation(fields: [topicId], references: [id])
+  topicId String
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
