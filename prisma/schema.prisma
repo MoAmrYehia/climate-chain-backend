@@ -7,18 +7,68 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum TreeKind {
-  ash
-  aspen
-  birch
-  cherry
+enum Cantons {
+  baselStadt
+  baselLandschaft
+  zug
+  geneve
+  zurich
+  neuchatel
+  schaffhausen
+  ticino
+  bern
+  sanktGallen
+  vaud
+  nidwalden
+  graubuenden
+  lucerne
+  jura
+  glarus
+  solothurn
+  obwalden
+  aargau
+  appenzellInnerrhoden
+  thurgau
+  schwyz
+  fribourg
+  appenzellAusserrhoden
+  valais
+  uri
 }
 
-model Tree {
-  id                  String   @id @default(cuid())
-  name                String   @unique @db.VarChar(18)
-  kind                TreeKind
-  age                 Int
-  createdAt           DateTime @default(now())
-  updatedAt           DateTime @updatedAt
+enum Years {
+  year2020
+  year2030
+  year2040
+  year2050
+  year2060
+  year2070
+  year2080
+}
+
+model Topic {
+  id String @id @default(cuid())
+
+  title           String    @unique @db.VarChar(26)
+  subTitle        String?   @db.VarChar(52)
+  contextImageUrl String
+  graphImageUrl   String
+  body            String
+  affectedCantons Cantons[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model TopicInstance {
+  id String @id @default(cuid())
+
+  title      String @unique @db.VarChar(26)
+  value      Float
+  unit       String
+  difference Int
+  year       Years
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

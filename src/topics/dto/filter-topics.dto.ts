@@ -2,15 +2,15 @@ import { ApiProperty, IntersectionType, PartialType } from '@nestjs/swagger';
 import { Prisma } from '@prisma/client';
 import { IsOptional, IsString, ValidateIf } from 'class-validator';
 import { BaseFilterDto, getOrderByArrayFromType, stringArrayToEnum } from '../../misc/filtering';
-import { CreateTreeDto } from './create-tree.dto';
+import { CreateTopicDto } from './create-topic.dto';
 
-export class FilterTrees extends IntersectionType(PartialType(CreateTreeDto), BaseFilterDto) {
+export class FilterTopicsDto extends IntersectionType(PartialType(CreateTopicDto), BaseFilterDto) {
   @ApiProperty({
     required: false,
-    enum: stringArrayToEnum(getOrderByArrayFromType(Prisma.TreeScalarFieldEnum))
+    enum: stringArrayToEnum(getOrderByArrayFromType(Prisma.TopicScalarFieldEnum))
   })
   @IsOptional()
   @IsString()
-  @ValidateIf((obj, val) => getOrderByArrayFromType(Prisma.TreeScalarFieldEnum).includes(val))
+  @ValidateIf((obj, val) => getOrderByArrayFromType(Prisma.TopicScalarFieldEnum).includes(val))
   readonly orderBy?: string = 'updatedAt';
 }
